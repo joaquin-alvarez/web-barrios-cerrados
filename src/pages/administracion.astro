@@ -1,0 +1,206 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout title="Administración - Centro de Proyectos y Gestión">
+  <Navigation />
+  <main class="page-container">
+    <section class="page-header">
+      <h1>Administración</h1>
+      <div class="breadcrumbs">
+        <a href="/barrios">Barrios</a> / Administración
+      </div>
+    </section>
+    <section class="page-content">
+      <div class="content-wrapper">
+        <div class="content-main">
+          <h2>Servicios de Administración</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          
+          <div class="service-cards">
+            <div class="service-card">
+              <div class="icon">📊</div>
+              <h3>Gestión Financiera</h3>
+              <p>Administración de los recursos económicos del barrio cerrado.</p>
+            </div>
+            
+            <div class="service-card">
+              <div class="icon">🏢</div>
+              <h3>Mantenimiento</h3>
+              <p>Cuidado de las instalaciones y áreas comunes.</p>
+            </div>
+            
+            <div class="service-card">
+              <div class="icon">🔒</div>
+              <h3>Seguridad</h3>
+              <p>Control de accesos y vigilancia del perímetro.</p>
+            </div>
+          </div>
+        </div>
+        
+        <aside class="content-sidebar">
+          <div class="sidebar-box">
+            <h3>Contáctanos</h3>
+            <p>¿Tienes consultas sobre la administración de barrios cerrados? Comunícate con nosotros.</p>
+            <a href="#" class="btn">Contactar</a>
+          </div>
+          
+          <div class="sidebar-box">
+            <h3>Recursos</h3>
+            <ul class="resource-list">
+              <li><a href="#">Guía de administración</a></li>
+              <li><a href="#">Reglamentos modelo</a></li>
+              <li><a href="#">Preguntas frecuentes</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</MainLayout>
+
+<style>
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(102, 114, 70, 0.2);
+  }
+
+  .page-header h1 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .breadcrumbs {
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs a {
+    color: var(--color-primary);
+  }
+
+  .content-wrapper {
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    gap: 2rem;
+  }
+
+  .content-main h2 {
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .content-main p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .service-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .service-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .sidebar-box {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .sidebar-box h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .resource-list {
+    list-style: none;
+  }
+
+  .resource-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    color: var(--color-dark);
+    transition: color 0.3s;
+  }
+
+  .resource-list a:hover {
+    color: var(--color-primary);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+  }
+
+  .btn:hover {
+    background-color: var(--color-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .content-wrapper {
+      grid-template-columns: 1fr;
+    }
+    
+    .service-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

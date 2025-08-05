@@ -1,0 +1,141 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout title="Blog - Centro de Proyectos y Gestión">
+  <Navigation />
+  <main class="page-container">
+    <section class="page-header">
+      <h1>Blog</h1>
+    </section>
+    <section class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-image"></div>
+        <div class="blog-content">
+          <span class="blog-date">5 Agosto, 2025</span>
+          <h2>Título del artículo del blog</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </div>
+      </article>
+      
+      <article class="blog-card">
+        <div class="blog-image"></div>
+        <div class="blog-content">
+          <span class="blog-date">3 Agosto, 2025</span>
+          <h2>Otro título de artículo interesante</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </div>
+      </article>
+      
+      <article class="blog-card">
+        <div class="blog-image"></div>
+        <div class="blog-content">
+          <span class="blog-date">29 Julio, 2025</span>
+          <h2>Un tercer artículo para el blog</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </div>
+      </article>
+      
+      <article class="blog-card">
+        <div class="blog-image"></div>
+        <div class="blog-content">
+          <span class="blog-date">20 Julio, 2025</span>
+          <h2>Cuarto título de artículo</h2>
+          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+          <a href="#" class="read-more">Leer más →</a>
+        </div>
+      </article>
+    </section>
+  </main>
+  <Footer />
+</MainLayout>
+
+<style>
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(102, 114, 70, 0.2);
+  }
+
+  .page-header h1 {
+    color: var(--color-primary);
+    font-size: 2rem;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .blog-image {
+    height: 180px;
+    background-color: var(--color-secondary);
+    background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  }
+
+  .blog-content {
+    padding: 1.5rem;
+  }
+
+  .blog-date {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .blog-content h2 {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .blog-content p {
+    margin-bottom: 1.5rem;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .read-more {
+    color: var(--color-primary);
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  .read-more:hover {
+    color: var(--color-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

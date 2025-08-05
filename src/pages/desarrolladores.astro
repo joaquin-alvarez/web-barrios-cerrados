@@ -1,0 +1,213 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout title="Desarrolladores - Centro de Proyectos y Gestión">
+  <Navigation />
+  <main class="page-container">
+    <section class="page-header">
+      <h1>Desarrolladores</h1>
+      <div class="breadcrumbs">
+        <a href="/barrios">Barrios</a> / Desarrolladores
+      </div>
+    </section>
+    <section class="page-content">
+      <div class="developer-intro">
+        <h2>Desarrollo de Barrios Cerrados</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      
+      <div class="developer-grid">
+        <div class="developer-card">
+          <div class="developer-image"></div>
+          <div class="developer-content">
+            <h3>Desarrollo Las Lomas</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit lacus at nibh cursus, in vehicula neque tincidunt.</p>
+            <a href="#" class="btn">Ver proyecto</a>
+          </div>
+        </div>
+        
+        <div class="developer-card">
+          <div class="developer-image"></div>
+          <div class="developer-content">
+            <h3>Barrio El Pinar</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit lacus at nibh cursus, in vehicula neque tincidunt.</p>
+            <a href="#" class="btn">Ver proyecto</a>
+          </div>
+        </div>
+        
+        <div class="developer-card">
+          <div class="developer-image"></div>
+          <div class="developer-content">
+            <h3>Altos del Valle</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit lacus at nibh cursus, in vehicula neque tincidunt.</p>
+            <a href="#" class="btn">Ver proyecto</a>
+          </div>
+        </div>
+        
+        <div class="developer-card">
+          <div class="developer-image"></div>
+          <div class="developer-content">
+            <h3>Villa del Lago</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit lacus at nibh cursus, in vehicula neque tincidunt.</p>
+            <a href="#" class="btn">Ver proyecto</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cta-section">
+        <h2>¿Eres un desarrollador?</h2>
+        <p>Contacta con nosotros para presentar tu proyecto y recibir asesoramiento.</p>
+        <a href="#" class="cta-btn">Contactar ahora</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</MainLayout>
+
+<style>
+  .page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+  }
+
+  .page-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(102, 114, 70, 0.2);
+  }
+
+  .page-header h1 {
+    color: var(--color-primary);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .breadcrumbs {
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .breadcrumbs a {
+    color: var(--color-primary);
+  }
+
+  .developer-intro {
+    margin-bottom: 3rem;
+  }
+
+  .developer-intro h2 {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .developer-intro p {
+    line-height: 1.8;
+    max-width: 800px;
+  }
+
+  .developer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .developer-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+
+  .developer-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .developer-image {
+    height: 180px;
+    background-color: var(--color-secondary);
+    background-image: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+  }
+
+  .developer-content {
+    padding: 1.5rem;
+  }
+
+  .developer-content h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .developer-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: var(--color-secondary);
+  }
+
+  .cta-section {
+    background-color: #f9f9f9;
+    padding: 3rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .cta-btn:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .developer-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-section {
+      padding: 2rem 1rem;
+    }
+  }
+</style>

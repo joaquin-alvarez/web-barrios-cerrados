@@ -1,0 +1,141 @@
+---
+---
+
+<section class="section partners-section">
+  <div class="section-container">
+    <div class="logos-grid">
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 1</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 2</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 3</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 4</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 5</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 6</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 7</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 8</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 9</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 10</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 11</div>
+      </div>
+      <div class="logo-item">
+        <div class="logo-circle">LOGO 12</div>
+      </div>
+    </div>
+
+    <div class="solutions-section">
+      <div class="solution-card">
+        <img src="/soluciones.png" alt="Soluciones en un Click" />
+      </div>
+      <div class="solution-card">
+        <img src="/flora.png" alt="Flora" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .partners-section {
+    background-color: #f9f9f9;
+  }
+
+  .logos-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .logo-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid var(--color-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-primary);
+    font-weight: bold;
+    transition: all 0.3s;
+  }
+
+  .logo-circle:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .solutions-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .solution-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    transition: transform 0.3s;
+  }
+
+  .solution-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .solution-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 1200px) {
+    .logos-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logos-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .logo-circle {
+      width: 80px;
+      height: 80px;
+      font-size: 0.8rem;
+    }
+  }
+</style>

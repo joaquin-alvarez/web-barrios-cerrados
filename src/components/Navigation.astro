@@ -1,0 +1,98 @@
+---
+---
+
+<nav class="main-nav" id="content">
+  <div class="nav-container">
+    <ul class="nav-list">
+      <li><a href="/nosotros" class="nav-link">Nosotros</a></li>
+      <li class="dropdown">
+        <a href="/barrios" class="nav-link">Barrios</a>
+        <div class="dropdown-content">
+          <a href="/administracion">Administración</a>
+          <a href="/desarrolladores">Desarrolladores</a>
+          <a href="/publicacion">Publicación</a>
+        </div>
+      </li>
+      <li><a href="/concursos" class="nav-link">Concursos</a></li>
+      <li><a href="/blog" class="nav-link">Blog</a></li>
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .main-nav {
+    background-color: var(--color-light);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    color: var(--color-primary);
+    font-weight: bold;
+    transition: color 0.3s;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+  }
+
+  .nav-link:hover {
+    color: var(--color-secondary);
+    background-color: rgba(102, 114, 70, 0.1);
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .dropdown-content a {
+    color: var(--color-dark);
+    padding: 12px 16px;
+    display: block;
+    transition: background-color 0.3s;
+  }
+
+  .dropdown-content a:hover {
+    background-color: rgba(102, 114, 70, 0.1);
+    color: var(--color-primary);
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .nav-list {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .dropdown-content {
+      position: static;
+      box-shadow: none;
+      width: 100%;
+    }
+  }
+</style>
