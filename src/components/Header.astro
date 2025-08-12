@@ -17,11 +17,7 @@
     </p>
     <div class="scroll-indicator">
       <a href="#content">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="8 12 12 16 16 12"></polyline>
-          <line x1="12" y1="8" x2="12" y2="16"></line>
-        </svg>
+        <img src="/arrow_down.svg" alt="Scroll down" />
       </a>
     </div>
   </div>
@@ -32,14 +28,17 @@
     position: relative;
     min-height: 100vh;
     background: linear-gradient(rgba(102, 114, 70, 0.7), rgba(102, 114, 70, 0.7)), 
-                url('/background.jpg') no-repeat center center/cover;
+                url('/background.png') no-repeat center center/cover;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
-    padding: 0 20px;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 H100 V85 Q95,95 50,100 Q5,95 0,85 Z" /></svg>') no-repeat;
+    -webkit-mask-size: cover;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 H100 V85 Q95,95 50,100 Q5,95 0,85 Z" /></svg>') no-repeat;
+    mask-size: cover;
   }
 
   .hero-content {
@@ -47,7 +46,7 @@
   }
 
   .logo {
-    margin-bottom: 20px;
+    margin-bottom: 5vh;
   }
   
   .logo img {
@@ -56,38 +55,46 @@
 
   .small-heading {
     display: block;
-    font-size: 1.2rem;
+    font-size: clamp(22px, 3vw, 26px);
     font-weight: normal;
     letter-spacing: 2px;
+    text-align: start;
   }
 
   .main-heading {
     display: block;
-    font-size: 3.5rem;
+    font-size: clamp(44px, 8vw, 66px);
     font-weight: bold;
     line-height: 1.1;
-    margin: 10px 0;
+    margin: 0 0 10px 0;
+    text-align: start;
   }
 
   .location {
-    display: inline-block;
-    font-size: 1rem;
+    display: block;
+    font-size: clamp(18px, 2.5vw, 22px);
     font-weight: normal;
     padding: 2px 8px;
     background: rgba(255, 255, 255, 0.8);
     color: var(--color-dark);
     border-radius: 4px;
+    text-align: end;
+    width: fit-content;
+    margin-left: auto;
   }
 
   .tagline {
-    margin-top: 20px;
-    font-size: 1.2rem;
+    margin-top: 10vh;
+    font-weight: bold;
+    font-size: clamp(22px, 3vw, 26px);
     line-height: 1.5;
   }
 
   .scroll-indicator {
+    width: 3vw;
+    height: auto;
     position: absolute;
-    bottom: 40px;
+    bottom: 10vh;
     left: 50%;
     transform: translateX(-50%);
     animation: bounce 2s infinite;
