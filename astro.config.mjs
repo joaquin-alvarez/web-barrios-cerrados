@@ -4,8 +4,8 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
     output: 'static',
-    site: 'https://escobar.gob.ar',
-    base: '/prueba-barrios',
+    site: 'https://joaquin-alvarez.github.io/web-barrios-cerrados',
+    base: '/web-barrios-cerrados',
     build: {
         assets: '_astro',
         inlineStylesheets: 'auto'
