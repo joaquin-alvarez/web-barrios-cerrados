@@ -19,15 +19,9 @@ import { barrios } from '../data/barrios.js';
     <div class="logos-grid">
       {barrios.map((barrio, index) => (
         <div class="logo-item" data-barrio-id={barrio.id} data-aos="fade-up" data-aos-delay={index * 50}>
-          <div class="logo-circle" title={barrio.nombre}>
-            <div class="logo-content">
-              <svg class="placeholder-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="50" cy="50" r="48" fill="var(--color-white)" stroke="var(--color-primary)" stroke-width="2"/>
-                <text x="50" y="58" font-size="30" font-weight="600" text-anchor="middle" fill="var(--color-primary)">{barrio.nombre.substring(0, 1)}</text>
-              </svg>
-              <span class="barrio-name">{barrio.nombre}</span>
-            </div>
-            <div class="logo-hover-info">
+          <div class="barrio-card" title={barrio.nombre}>
+            <span class="barrio-name">{barrio.nombre}</span>
+            <div class="barrio-hover-info">
               <span class="view-details">Ver detalles</span>
             </div>
           </div>
@@ -46,19 +40,19 @@ import { barrios } from '../data/barrios.js';
         <div class="solution-card" data-aos="fade-right">
           <div class="solution-card-inner">
             <img src="/btnSol1Click-web-barrios.svg" alt="Soluciones en un Click" />
-            <div class="solution-overlay">
+            <!-- <div class="solution-overlay">
               <h4>Soluciones en un Click</h4>
               <p>Gestione sus servicios de forma rápida y eficiente</p>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="solution-card" data-aos="fade-left">
           <div class="solution-card-inner">
             <img src="/btnFlora-web-barrios.svg" alt="Flora" />
-            <div class="solution-overlay">
+            <!-- <div class="solution-overlay">
               <h4>Flora</h4>
               <p>Mejore los espacios verdes de su comunidad</p>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -311,7 +305,7 @@ import { barrios } from '../data/barrios.js';
 
   .logos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: var(--spacing-xl);
     margin: var(--spacing-lg) 0;
     justify-items: center;
@@ -323,41 +317,58 @@ import { barrios } from '../data/barrios.js';
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 180px;
+    max-width: 220px;
     opacity: 0; /* Start invisible for animation */
     animation: fadeIn 0.8s ease-out forwards;
     animation-delay: calc(var(--i, 0) * 0.1s);
   }
 
-  .logo-circle {
+  .barrio-card {
     position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: var(--radius-circle);
+    width: 100%;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
     background-color: var(--color-white);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
     transition: all var(--transition-medium) cubic-bezier(0.25, 0.46, 0.45, 0.94);
     cursor: pointer;
     z-index: 1;
-  }
-
-  .logo-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    height: 80px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    background-color: var(--color-white);
-    transition: transform var(--transition-medium) ease;
-    z-index: 2;
+    justify-content: center;
+    text-align: center;
+    border-left: 4px solid var(--color-primary);
   }
 
-  .logo-hover-info {
+  .barrio-card .barrio-name {
+    position: static;
+    color: var(--text-primary);
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    text-align: center;
+    transition: transform var(--transition-medium) ease;
+    padding: 0;
+    bottom: auto;
+  }
+
+  .barrio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .barrio-card:hover .barrio-name {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .barrio-card:hover .barrio-hover-info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .barrio-hover-info {
     position: absolute;
     top: 0;
     left: 0;
@@ -384,50 +395,6 @@ import { barrios } from '../data/barrios.js';
     border-radius: var(--radius-sm);
   }
 
-  .logo-circle:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
-  }
-
-  .logo-circle:hover .logo-content {
-    transform: translateY(-100%);
-  }
-
-  .logo-circle:hover .logo-hover-info {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .placeholder-logo {
-    width: 80px;
-    height: 80px;
-    transition: transform var(--transition-medium) ease;
-  }
-
-  .logo-circle:hover .placeholder-logo {
-    transform: scale(1.1);
-  }
-
-  .barrio-name {
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: var(--text-primary);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0 var(--spacing-xs);
-    transition: color var(--transition-medium) ease;
-  }
-
-  .logo-circle:hover + .barrio-name {
-    color: var(--color-primary);
-  }
-
   .status-badge {
     position: absolute;
     top: -5px;
@@ -440,6 +407,20 @@ import { barrios } from '../data/barrios.js';
     z-index: 10;
     box-shadow: var(--shadow-sm);
     white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    .barrio-card {
+      height: 70px;
+      padding: var(--spacing-sm);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .barrio-card {
+      height: 60px;
+      font-size: 0.8rem;
+    }
   }
 
   .solutions-section {
@@ -467,20 +448,20 @@ import { barrios } from '../data/barrios.js';
     width: 20vw;
     min-width: 300px;
     height: auto;
-    border-radius: var(--radius-md);
-    overflow: hidden;
+    overflow: visible;
     transition: transform var(--transition-medium) ease, box-shadow var(--transition-medium) ease;
+    background-color: #f8f8f8;
   }
 
   .solution-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .solution-card img {
-    background-color: transparent;
+    background-color: #f8f8f8;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -490,11 +471,11 @@ import { barrios } from '../data/barrios.js';
   .solution-overlay {
     position: absolute;
     bottom: 0;
+    border-radius: var(--radius-lg);
     left: 0;
     width: 100%;
     padding: var(--spacing-md);
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-    color: white;
     transform: translateY(100%);
     transition: transform var(--transition-medium) ease;
   }
@@ -511,7 +492,7 @@ import { barrios } from '../data/barrios.js';
 
   .solution-card:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+    cursor: pointer;
   }
 
   .solution-card:hover img {
@@ -537,337 +518,35 @@ import { barrios } from '../data/barrios.js';
   /* Responsive Styles */
   @media (max-width: 1200px) {
     .logos-grid {
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     }
   }
 
   @media (max-width: 992px) {
     .logos-grid {
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
 
-    .logo-circle {
-      width: 130px;
-      height: 130px;
+    .logo-item {
+      width: 100%;
+      max-width: 180px;
     }
 
-    .placeholder-logo {
-      width: 70px;
+    .barrio-card {
       height: 70px;
+    }
+
+    .barrio-name {
+      font-size: var(--font-size-sm);
     }
   }
 
   @media (max-width: 768px) {
     .logos-grid {
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: var(--spacing-lg);
     }
 
-    .logo-circle {
-      width: 120px;
-      height: 120px;
-    }
-
-    .placeholder-logo {
-      width: 60px;
-      height: 60px;
-    }
-
-    .solutions-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .logos-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--spacing-md);
-    }
-
-    .logo-circle {
-      width: 110px;
-      height: 110px;
-    }
-
-    .placeholder-logo {
-      width: 50px;
-      height: 50px;
-    }
-
-    .solution-card {
-      width: 100%;
-      max-width: 300px;
-    }
-  }
-
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.85);
-    transition: opacity var(--transition-medium) ease;
-  }
-  
-  /* Separate class for opacity to avoid initial state issues */
-  .modal.fade-in {
-    opacity: 1;
-  }
-  
-  .modal.fade-out {
-    opacity: 0;
-  }
-
-  .modal-content {
-    position: relative;
-    background-color: var(--color-white);
-    margin: auto;
-    width: 90%;
-    max-width: 900px;
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-30px);
-    opacity: 0;
-    transition: all var(--transition-medium) cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  .modal.active .modal-content {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  .close-modal {
-    position: absolute;
-    right: var(--spacing-md);
-    top: var(--spacing-md);
-    font-size: var(--font-size-xl);
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-circle);
-    background-color: var(--color-gray-light);
-    cursor: pointer;
-    color: var(--color-primary-dark);
-    transition: all var(--transition-medium) ease;
-  }
-
-  .close-modal:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    transform: rotate(90deg);
-  }
-
-  #modal-content-container h2 {
-    margin-bottom: var(--spacing-lg);
-    color: var(--color-primary-dark);
-    font-size: var(--font-size-xl);
-    border-bottom: 2px solid var(--color-primary-light);
-    padding-bottom: var(--spacing-sm);
-    position: relative;
-  }
-
-  #modal-content-container h2::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 80px;
-    height: 2px;
-    background-color: var(--color-primary);
-  }
-
-  .barrio-info-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--spacing-xl);
-  }
-
-  .detail-section {
-    margin-bottom: var(--spacing-md);
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 0.2s;
-    opacity: 0;
-  }
-
-  .detail-section:nth-child(2) {
-    animation-delay: 0.3s;
-  }
-
-  .detail-section:nth-child(3) {
-    animation-delay: 0.4s;
-  }
-
-  .detail-section:nth-child(4) {
-    animation-delay: 0.5s;
-  }
-
-  .detail-section h3 {
-    margin-bottom: var(--spacing-sm);
-    color: var(--color-primary);
-    font-size: var(--font-size-lg);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-  }
-
-  .detail-section h3::before {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 18px;
-    background-color: var(--color-primary);
-    margin-right: var(--spacing-xs);
-    border-radius: var(--radius-sm);
-  }
-
-  .detail-section ul {
-    padding-left: var(--spacing-md);
-    list-style-type: none;
-  }
-
-  .detail-section li {
-    margin-bottom: var(--spacing-sm);
-    position: relative;
-    padding-left: var(--spacing-sm);
-  }
-
-  .detail-section li::before {
-    content: '•';
-    color: var(--color-secondary);
-    position: absolute;
-    left: 0;
-  }
-
-  .detail-section a {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: all var(--transition-fast) ease;
-    border-bottom: 1px dotted var(--color-primary-light);
-  }
-
-  .detail-section a:hover {
-    color: var(--color-primary-dark);
-    border-bottom: 1px solid var(--color-primary);
-  }
-
-  .tags-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--spacing-xs);
-    padding-left: 0 !important;
-  }
-
-  .tag {
-    background-color: var(--color-secondary-light);
-    color: var(--color-dark);
-    padding: 5px 10px;
-    border-radius: var(--radius-md);
-    font-size: var(--font-size-sm);
-    font-weight: 500;
-    transition: all var(--transition-fast) ease;
-    border: 1px solid var(--color-secondary);
-  }
-
-  .tag:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-white);
-    transform: translateY(-2px);
-  }
-
-  .event-icon {
-    margin-right: var(--spacing-sm);
-    font-style: normal;
-    font-size: var(--font-size-lg);
-    animation: pulse 2s infinite;
-  }
-
-  #barrio-map {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 0.5s ease forwards;
-    animation-delay: 0.6s;
-    opacity: 0;
-  }
-
-  .map-placeholder {
-    background: linear-gradient(135deg, var(--color-gray-light), #f8f8f8);
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
-    overflow: hidden;
-    position: relative;
-  }
-
-  .map-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M95,50 L80,35 L80,45 L55,45 L55,20 L65,20 L50,5 L35,20 L45,20 L45,45 L20,45 L20,35 L5,50 L20,65 L20,55 L45,55 L45,80 L35,80 L50,95 L65,80 L55,80 L55,55 L80,55 L80,65 Z" fill="%23eaeaea"/></svg>') no-repeat center center;
-    background-size: 50%;
-    opacity: 0.3;
-  }
-
-  .map-placeholder svg {
-    width: 60px;
-    height: 60px;
-    margin-bottom: var(--spacing-sm);
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-    z-index: 2;
-  }
-
-  .map-placeholder a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: 500;
-    padding: var(--spacing-md);
-    border-radius: var(--radius-md);
-    background-color: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(5px);
-    transition: all var(--transition-medium) ease;
-    z-index: 2;
-  }
-
-  .map-placeholder a:hover {
-    transform: scale(1.05);
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: var(--shadow-md);
-  }
-
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-  }
-
-  @media (max-width: 992px) {
-    .modal-content {
-      width: 95%;
-      max-width: 800px;
-      padding: var(--spacing-lg);
-    }
-  }
-
-  @media (max-width: 768px) {
     .barrio-info-grid {
       grid-template-columns: 1fr;
     }
@@ -885,14 +564,252 @@ import { barrios } from '../data/barrios.js';
       margin-bottom: var(--spacing-md);
     }
 
-    .logo-circle {
-      width: 100px;
-      height: 100px;
-      font-size: 0.8rem;
+    .solutions-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .logos-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
     }
 
-    .barrio-name {
-      font-size: 0.7rem;
+    .solution-card {
+      width: 100%;
+      max-width: 300px;
     }
+  }
+
+  :global(.modal) {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    transition: opacity var(--transition-medium) ease;
+  }
+  
+  :global(.modal.fade-in) {
+    opacity: 1;
+  }
+  
+  :global(.modal.fade-out) {
+    opacity: 0;
+  }
+
+  :global(.modal-content) {
+    position: relative;
+    background-color: var(--color-white);
+    margin: 5% auto;
+    width: 90%;
+    max-width: 900px;
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-30px);
+    opacity: 0;
+    transition: all var(--transition-medium) cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  :global(.modal.active .modal-content) {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  :global(.close-modal) {
+    position: absolute;
+    right: var(--spacing-md);
+    top: var(--spacing-md);
+    font-size: var(--font-size-xl);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-circle);
+    background-color: var(--color-gray-light);
+    cursor: pointer;
+    color: var(--color-primary-dark);
+    transition: all var(--transition-medium) ease;
+  }
+
+  :global(.close-modal:hover) {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: rotate(90deg);
+  }
+
+  :global(#modal-content-container h2) {
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary-dark);
+    font-size: var(--font-size-xl);
+    border-bottom: 2px solid var(--color-primary-light);
+    padding-bottom: var(--spacing-sm);
+    position: relative;
+  }
+
+  :global(#modal-content-container h2::after) {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 80px;
+    height: 2px;
+    background-color: var(--color-primary);
+  }
+
+  :global(.barrio-info-grid) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  :global(.detail-section) {
+    margin-bottom: var(--spacing-md);
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+
+  :global(.detail-section:nth-child(2)) {
+    animation-delay: 0.3s;
+  }
+
+  :global(.detail-section:nth-child(3)) {
+    animation-delay: 0.4s;
+  }
+
+  :global(.detail-section:nth-child(4)) {
+    animation-delay: 0.5s;
+  }
+
+  :global(.detail-section h3) {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+  }
+
+  :global(.detail-section h3::before) {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 18px;
+    background-color: var(--color-primary);
+    margin-right: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+  }
+
+  :global(.detail-section ul) {
+    padding-left: var(--spacing-md);
+    list-style-type: none;
+  }
+
+  :global(.detail-section li) {
+    margin-bottom: var(--spacing-sm);
+    position: relative;
+    padding-left: var(--spacing-sm);
+  }
+
+  :global(.detail-section li::before) {
+    content: '•';
+    color: var(--color-secondary);
+    position: absolute;
+    left: 0;
+  }
+
+  :global(.detail-section a) {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all var(--transition-fast) ease;
+    border-bottom: 1px dotted var(--color-primary-light);
+  }
+
+  :global(.detail-section a:hover) {
+    color: var(--color-primary-dark);
+    border-bottom: 1px solid var(--color-primary);
+  }
+
+  :global(.tags-list) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    padding-left: 0 !important;
+  }
+
+  :global(.tag) {
+    background-color: var(--color-secondary-light);
+    color: var(--color-dark);
+    padding: 5px 10px;
+    border-radius: var(--radius-md);
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    transition: all var(--transition-fast) ease;
+    border: 1px solid var(--color-secondary);
+  }
+
+  :global(.tag:hover) {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    transform: translateY(-2px);
+  }
+
+  :global(.event-icon) {
+    margin-right: var(--spacing-sm);
+    font-style: normal;
+    font-size: var(--font-size-lg);
+    animation: pulse 2s infinite;
+  }
+
+  :global(#barrio-map) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.5s ease forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+  }
+
+  :global(.map-placeholder) {
+    background: linear-gradient(135deg, var(--color-gray-light), #f8f8f8);
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    position: relative;
+  }
+
+  :global(.map-placeholder a) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    transition: all var(--transition-medium) ease;
+    z-index: 2;
+  }
+
+  :global(.map-placeholder a:hover) {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: var(--shadow-md);
   }
 </style>
