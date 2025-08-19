@@ -1,10 +1,11 @@
 ---
+const bgImageUrl = `${import.meta.env.BASE_URL}/background.png`;
 ---
 
-<header class="hero">
+<header class="hero" style={`--bg-image-url: url(${bgImageUrl})`}>
   <div class="hero-content">
     <div class="logo">
-      <img src="/logo.svg" alt="Centro de Proyectos y Gestión" />
+      <img src={`${import.meta.env.BASE_URL}/logo.svg`} alt="Centro de Proyectos y Gestión" />
     </div>
     <h1>
       <span class="small-heading">CENTRO DE</span>
@@ -17,7 +18,7 @@
     </p>
     <div class="scroll-indicator">
       <a href="#content">
-        <img src="/arrow_down.svg" alt="Scroll down" />
+        <img src={`${import.meta.env.BASE_URL}/arrow_down.svg`} alt="Scroll down" />
       </a>
     </div>
   </div>
@@ -27,8 +28,11 @@
   .hero {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(rgba(102, 114, 70, 0.7), rgba(102, 114, 70, 0.7)), 
-                url('/background.png') no-repeat center center/cover;
+    background-image: linear-gradient(rgba(102, 114, 70, 0.7), rgba(102, 114, 70, 0.7)), 
+                var(--bg-image-url);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;

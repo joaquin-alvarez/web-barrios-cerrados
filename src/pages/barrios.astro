@@ -15,17 +15,17 @@ import Footer from '../components/Footer.astro';
         <div class="section-card">
           <h2>Administración</h2>
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          <a href="/administracion" class="btn">Ver más</a>
+          <a href={`${import.meta.env.BASE_URL}/administracion`} class="btn">Ver más</a>
         </div>
         <div class="section-card">
           <h2>Desarrolladores</h2>
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          <a href="/desarrolladores" class="btn">Ver más</a>
+          <a href={`${import.meta.env.BASE_URL}/desarrolladores`} class="btn">Ver más</a>
         </div>
         <div class="section-card">
           <h2>Publicación</h2>
           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          <a href="/publicacion" class="btn">Ver más</a>
+          <a href={`${import.meta.env.BASE_URL}/publicacion`} class="btn">Ver más</a>
         </div>
       </div>
     </section>
