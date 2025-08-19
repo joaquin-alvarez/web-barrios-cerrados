@@ -35,11 +35,13 @@ import { barrios } from '../data/barrios.js';
     </div>
 
     <div class="solutions-section">
-      <h3 class="solutions-title">Soluciones para tu comunidad</h3>
+      <!-- <h3 class="solutions-title">Soluciones para tu comunidad</h3> -->
       <div class="solutions-container">
         <div class="solution-card" data-aos="fade-right">
           <div class="solution-card-inner">
-            <img src="/btnSol1Click-web-barrios.svg" alt="Soluciones en un Click" />
+            <a href="https://escobar360.escobar.gob.ar/servicio.aspx?ser_id=2015" target="_blank">
+              <img src="/btnSol1Click-web-barrios.svg" alt="Soluciones en un Click" />
+            </a>
             <!-- <div class="solution-overlay">
               <h4>Soluciones en un Click</h4>
               <p>Gestione sus servicios de forma rápida y eficiente</p>
@@ -48,7 +50,9 @@ import { barrios } from '../data/barrios.js';
         </div>
         <div class="solution-card" data-aos="fade-left">
           <div class="solution-card-inner">
-            <img src="/btnFlora-web-barrios.svg" alt="Flora" />
+            <a href="https://wa.me/+5491168131202" target="_blank">
+              <img src="/btnFlora-web-barrios.svg" alt="Flora" />
+            </a>
             <!-- <div class="solution-overlay">
               <h4>Flora</h4>
               <p>Mejore los espacios verdes de su comunidad</p>
@@ -71,7 +75,7 @@ import { barrios } from '../data/barrios.js';
         <div id="barrio-map">
           <div class="map-placeholder">
             <a id="map-link" href="#" target="_blank" rel="noopener noreferrer">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="var(--color-primary)"/>
               </svg>
               <span>Ver en Google Maps</span>
@@ -781,7 +785,8 @@ import { barrios } from '../data/barrios.js';
   :global(.map-placeholder) {
     background: linear-gradient(135deg, var(--color-gray-light), #f8f8f8);
     width: 100%;
-    aspect-ratio: 16 / 9;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     align-items: center;
